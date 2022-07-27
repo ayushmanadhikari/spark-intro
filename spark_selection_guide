@@ -1,0 +1,54 @@
+1. Selection by Label
+        a. selecting column
+                -df.select(['col_name'])
+                -returns dataframe
+        b. selecting row/s (.collect()[row_index][col_index])
+                - .collect() returns rows as a list 
+                - df.collect()[row_index]
+                -returns row object
+        c. selecting cell
+                - df.collect()[row_index][col_index]
+                -returns string
+        d. selecting sub dataframe
+                1. selecting multiple columns
+                        -df.select(['col1', 'col2'])
+                        -returns dataframe object
+                2. selecting mutiple rows
+
+
+                3. select 2 columns and one row
+                        -df.select(['col1', 'col2']).collect()[row1]
+                        -returns row object
+
+We cannot select a row directly and return a dataframe object. But what we can do is use filter to return particular rows based upon the column/cell values. 
+
+Filter
+1. single condition
+        df.filter(condition)
+                -df.filter(df.colName <operator> value)
+                -df.filter(df.Name == 'ayusman')
+
+2. multiple conditions
+        df.filter(conditions)
+                -df.filter((condition1) or/and (condition2))
+                -df.filter((df.Name=='ayusman') & (df.Age>20))
+
+3. filter with list values
+        -list1 contains list of names to filter
+        -df.filter(df.Name.isin(list1)).show()
+
+4. filter based on starts with, ends with and contains
+        -df.filter(df.name.startswith('A')).show()
+        -df.filter(df.name.endswith('A')).show()
+        -df.filter(df.name.contains('A')).show()
+
+5. filter with like
+        -df.filter(df.Name.like('%usm%')).show()
+
+
+
+
+
+
+
+
